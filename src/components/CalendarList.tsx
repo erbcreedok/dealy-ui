@@ -1,7 +1,6 @@
 import styled from '@emotion/styled'
 import { Box } from '@mui/material'
-import { FC, useCallback, useRef } from 'react'
-import { useResizeDetector } from 'react-resize-detector'
+import { FC, useEffect, useRef } from 'react'
 import { COLORS } from '../constants/colors'
 import { HOUR_HEIGHT, TIMELINE_LEFT_WIDTH } from '../constants/constants'
 import { TimelineColors, TimelineStatus } from '../types/TimelineColors'
@@ -87,7 +86,8 @@ const hours = Array.from({ length: 24 * 2 }).map((_, index) => ({
 
 export const CalendarList: FC = () => {
     const currentTimeRef = useRef<HTMLDivElement>()
-    const onResize = useCallback(() => {
+
+    useEffect(() => {
         const currentTime = currentTimeRef.current
         if (currentTime) {
             currentTime.scrollIntoView({
@@ -96,9 +96,9 @@ export const CalendarList: FC = () => {
             })
         }
     }, [])
-    const { ref } = useResizeDetector({ onResize })
+
     return (
-        <Flex ref={ref} overflow="auto" maxHeight="100%" sx={{ position: 'relative' }}>
+        <Flex overflow="auto" maxHeight="100%" sx={{ position: 'relative' }}>
             <LeftTimeline>
                 {hours.map((hour) => (
                     <HourHalf key={hour.getFormatted()} isFirst={hour.isFirst()} status={hour.getStatus()}>
