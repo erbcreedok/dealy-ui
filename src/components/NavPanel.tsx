@@ -1,12 +1,13 @@
 import styled from '@emotion/styled'
 import { Box } from '@mui/material'
 import { ComponentProps, FC } from 'react'
-import { COLORS } from 'src/constants/Colors'
+import { COLORS } from 'src/constants/colors'
 import {ReactComponent as PlusIcon} from 'src/assets/icons/plus.svg';
 import {ReactComponent as CalendarIcon} from 'src/assets/icons/calendar.svg';
 import {ReactComponent as WalletIcon} from 'src/assets/icons/wallet.svg';
 import {ReactComponent as NoteIcon} from 'src/assets/icons/note.svg';
 import {ReactComponent as UserIcon} from 'src/assets/icons/user.svg';
+import { NAV_PANEL_HEIGHT } from '../constants/constants'
 
 
 const CircleButton = styled(Box)`
@@ -18,7 +19,7 @@ const CircleButton = styled(Box)`
   color: ${COLORS.violet}
 `
 const NavItem = styled(Box)<{ active?: boolean }>`
-  color: ${({ active }) => active ? COLORS.violet : COLORS.systemGrey};
+  color: ${({ active }) => active ? COLORS.violet : COLORS.grey};
   text-align: center;
   font-size: 10px;
   display: flex;
@@ -33,7 +34,7 @@ const NavItem = styled(Box)<{ active?: boolean }>`
   }
 `
 const Wrapper = styled(Box)`
-  min-height: 54px;
+  min-height: ${NAV_PANEL_HEIGHT}px;
   background: white;
   display: flex;
   justify-content: space-around;
@@ -43,7 +44,7 @@ export type Props = ComponentProps<typeof Box>
 export const NavPanel: FC<Props> = (props) => {
     return (
         <Wrapper {...props}>
-            <NavItem>
+            <NavItem active>
                 <CalendarIcon />
                 Календарь
             </NavItem>

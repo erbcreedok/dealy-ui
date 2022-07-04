@@ -1,11 +1,9 @@
 import styled from '@emotion/styled'
-import { Box } from '@mui/material'
+import { NAV_PANEL_BOTTOM_OFFSET, NAV_PANEL_HEIGHT } from 'src/constants/constants'
+import { Flex } from './Flex'
 
-export const ViewBox = styled(Box)`
-  box-sizing: border-box;
-  display: flex;
+export const ViewBox = styled(Flex)`
+  max-height: calc(100vh - ${NAV_PANEL_HEIGHT + NAV_PANEL_BOTTOM_OFFSET}px);
   flex-direction: column;
-  height: 100vh;
   overflow: auto;
-  padding-top: 24px;
 `

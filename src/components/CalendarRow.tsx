@@ -3,19 +3,23 @@ import styled from '@emotion/styled'
 import { Box } from '@mui/material'
 import { FC, useCallback, useRef } from 'react'
 import { useResizeDetector } from 'react-resize-detector'
-import { COLORS } from 'src/constants/Colors'
+import { COLORS } from 'src/constants/colors'
+import { WEEKDAY_HEIGHT } from '../constants/constants'
 import { Hint, Typography } from './Typography'
 
 const Wrapper = styled(Box)`
   display: flex;
   overflow: auto;
+  min-height: ${WEEKDAY_HEIGHT + 8}px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid ${COLORS.lightGrey};
 `
 const DayWrapper = styled(Box)`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  height: 42px;
+  height: ${WEEKDAY_HEIGHT}px;
   font-size: 14px;
   overflow: hidden;
   flex-shrink: 0;
