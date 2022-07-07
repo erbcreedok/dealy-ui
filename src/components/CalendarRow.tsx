@@ -1,8 +1,7 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import { Box } from '@mui/material'
-import { FC, useCallback, useRef } from 'react'
-import { useResizeDetector } from 'react-resize-detector'
+import { FC, useEffect, useRef } from 'react'
 import { COLORS } from 'src/constants/colors'
 import { WEEKDAY_HEIGHT } from '../constants/constants'
 import { Hint, Typography } from './Typography'
@@ -59,22 +58,20 @@ type Props = {
 export const CalendarRow: FC<Props> = ({ active = 4 }) => {
     const startOfWeekRef = useRef<HTMLDivElement>()
 
-    const onResize = useCallback(() => {
+    useEffect(() => {
         const startOfWeek = startOfWeekRef.current
-        if (startOfWeek) {
+        if (active && startOfWeek) {
             startOfWeek.scrollIntoView({
                 behavior: 'smooth',
                 inline: 'start',
             })
         }
-    }, []);
-
-    const {ref: wrapperRef} = useResizeDetector({ onResize })
+    }, [active])
 
     return (
-        <Wrapper ref={wrapperRef}>
+        <Wrapper>
             {days.map((day) => (
-                <DayWrapper key={day.day} ref={isStartOfWeek(day, active) ? startOfWeekRef : null}>
+                <DayWrapper key={day.day} ref={isStartOfWeek(day, active) ? startOfWeekRef : null} onClick={() => setActive(day.day)}>
                     <Hint>{day.weekday}</Hint>
                     <DayBlock active={day.day === active}>{day.day}</DayBlock>
                 </DayWrapper>
