@@ -7,7 +7,7 @@ import { ViewWrapper } from 'src/components/ViewWrapper'
 import { globalStyles } from 'src/styles/global'
 import { theme } from 'src/styles/theme'
 import { CalendarView } from 'src/views/CalendarView'
-import { NAV_PANEL_BOTTOM_OFFSET } from './constants/constants'
+import { NAV_PANEL_BOTTOM_OFFSET } from './constants/layouts'
 
 function App() {
   return (

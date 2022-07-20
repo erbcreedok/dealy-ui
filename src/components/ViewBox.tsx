@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { NAV_PANEL_BOTTOM_OFFSET, NAV_PANEL_HEIGHT } from 'src/constants/constants'
+import { NAV_PANEL_BOTTOM_OFFSET, NAV_PANEL_HEIGHT } from 'src/constants/layouts'
 import { Flex } from './Flex'
 
 export const ViewBox = styled(Flex)`

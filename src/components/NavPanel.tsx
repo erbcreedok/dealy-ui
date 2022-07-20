@@ -7,7 +7,7 @@ import {ReactComponent as CalendarIcon} from 'src/assets/icons/calendar.svg';
 import {ReactComponent as WalletIcon} from 'src/assets/icons/wallet.svg';
 import {ReactComponent as NoteIcon} from 'src/assets/icons/note.svg';
 import {ReactComponent as UserIcon} from 'src/assets/icons/user.svg';
-import { NAV_PANEL_HEIGHT } from '../constants/constants'
+import { NAV_PANEL_HEIGHT } from '../constants/layouts'
 
 
 const CircleButton = styled(Box)`

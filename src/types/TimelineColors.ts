@@ -1,27 +1,27 @@
-import { COLORS } from '../constants/colors'
+import { Color, COLORS } from '../constants/colors'
+import { getAlpha } from '../utils/getAlpha'
+import { ActivityStatus } from './ActivityTypes'
 
-export enum TimelineStatus {
-    passed = 'passed',
-    current = 'current',
-    upcoming = 'upcoming',
-    default = 'default',
-}
 
-export const TimelineColors: Record<TimelineStatus, { color: COLORS, background: COLORS }> = {
-    [TimelineStatus.passed]: {
+export const TimelineColors: Record<ActivityStatus, { color: Color, background: Color }> = {
+    [ActivityStatus.passed]: {
         color: COLORS.blue,
-        background: COLORS.lightBlue,
+        background: getAlpha(COLORS.blue, .1),
     },
-    [TimelineStatus.current]: {
+    [ActivityStatus.current]: {
         color: COLORS.grey,
         background: COLORS.bg,
     },
-    [TimelineStatus.upcoming]: {
+    [ActivityStatus.upcoming]: {
         color: COLORS.green,
-        background: COLORS.lightGreen,
+        background: getAlpha(COLORS.green, .1),
     },
-    [TimelineStatus.default]: {
+    [ActivityStatus.default]: {
         color: COLORS.grey,
         background: COLORS.bg,
+    },
+    [ActivityStatus.canceled]: {
+        color: COLORS.red,
+        background: getAlpha(COLORS.red, .05),
     },
 }

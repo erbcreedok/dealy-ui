@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import { Box } from '@mui/material'
 import { FC, useEffect, useRef } from 'react'
 import { COLORS } from 'src/constants/colors'
-import { WEEKDAY_HEIGHT } from '../constants/constants'
+import { WEEKDAY_HEIGHT } from '../constants/layouts'
 import { Hint, Typography } from './Typography'
 
 const Wrapper = styled(Box)`
@@ -54,8 +54,9 @@ const isStartOfWeek = (day: { weekIndex: number, day: number }, active: number) 
 
 type Props = {
     active?: number
+    setActive?: (day: number) => void
 }
-export const CalendarRow: FC<Props> = ({ active = 4 }) => {
+export const CalendarRow: FC<Props> = ({ active = 4, setActive }) => {
     const startOfWeekRef = useRef<HTMLDivElement>()
 
     useEffect(() => {
@@ -71,7 +72,7 @@ export const CalendarRow: FC<Props> = ({ active = 4 }) => {
     return (
         <Wrapper>
             {days.map((day) => (
-                <DayWrapper key={day.day} ref={isStartOfWeek(day, active) ? startOfWeekRef : null} onClick={() => setActive(day.day)}>
+                <DayWrapper key={day.day} ref={isStartOfWeek(day, active) ? startOfWeekRef : null} onClick={() => setActive?.(day.day)}>
                     <Hint>{day.weekday}</Hint>
                     <DayBlock active={day.day === active}>{day.day}</DayBlock>
                 </DayWrapper>
