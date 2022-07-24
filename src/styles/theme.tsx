@@ -1,13 +1,10 @@
 import { createTheme } from '@mui/material'
 
 export const theme = createTheme({
-    typography: {
-        fontFamily: [
-            '"Nunito Sans"',
-            'sans-serif',
-        ].join(','),
-    },
-    components: {
-        MuiIconButton: {}
-    }
+	typography: {
+		fontFamily: ['"Nunito Sans"', 'sans-serif'].join(','),
+	},
+	components: {
+		MuiIconButton: {},
+	},
 })
