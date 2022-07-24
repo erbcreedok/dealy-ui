@@ -8,6 +8,7 @@ export enum COLORS {
 	lightViolet = 'rgba(66, 20, 232, 0.22)',
 	violet = '#623CEA',
 	lightGrey = '#D5D5D7',
+	lightestGrey = '#F3F5F5',
 	darkGrey = '#5A5C63',
 	grey = '#9FA1A8',
 	black = '#0C1618',

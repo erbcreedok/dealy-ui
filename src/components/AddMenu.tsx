@@ -2,12 +2,13 @@ import styled from '@emotion/styled'
 import { Box, IconButton } from '@mui/material'
 
 import { ReactComponent as ArrowRightIcon } from 'src/assets/icons/arrow-right.svg'
-import { COLORS } from 'src/constants/colors'
-import { MenuItemType, NavItemType } from 'src/types'
-import { getAlpha } from 'src/utils/getAlpha'
 import { Flex } from 'src/components/Flex'
 import { LinkBase } from 'src/components/LinkBase'
 import { Typography } from 'src/components/styled/Typography'
+import { COLORS } from 'src/constants/colors'
+import { withModalLink } from 'src/HOC/withModalLink'
+import { MenuItemType, NavItemType } from 'src/types'
+import { getAlpha } from 'src/utils/getAlpha'
 
 const Wrapper = styled(Box)`
 	background: ${COLORS.violet};
@@ -16,7 +17,7 @@ const Wrapper = styled(Box)`
 	padding: 8px 0;
 	overflow: hidden;
 `
-const MenuItem = styled(LinkBase)`
+const MenuItem = styled(withModalLink(LinkBase))`
 	width: 100%;
 	display: flex;
 	align-items: center;

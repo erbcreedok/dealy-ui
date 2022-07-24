@@ -55,6 +55,7 @@ module.exports = {
 			2,
 			{
 				namedComponents: 'arrow-function',
+				unnamedComponents: 'arrow-function',
 			},
 		],
 		// It’s OK to assign to parameter fields when it’s necessary

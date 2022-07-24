@@ -4,3 +4,5 @@ export const HOUR_HEIGHT = 116
 
 export const WEEKDAY_HEIGHT = 42
 export const TIMELINE_LEFT_WIDTH = 52
+
+export const MODAL_NAV_HEIGHT = 56
