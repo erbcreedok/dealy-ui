@@ -9,6 +9,8 @@ import { theme } from 'src/styles/theme'
 import { CalendarView } from 'src/views/CalendarView'
 import { NAV_PANEL_BOTTOM_OFFSET } from './constants/layouts'
 
+import { ServicesView } from './views/ServicesView'
+
 function App() {
   return (
       <ThemeProvider theme={theme}>
@@ -16,6 +18,7 @@ function App() {
           <ViewWrapper>
               <Routes>
                   <Route path="/calendar" element={<CalendarView />} />
+                  <Route path="/services" element={<ServicesView />} />
                   <Route path="/" element={<Navigate to="/calendar" />} />
               </Routes>
               <NavPanel sx={{ mt: 'auto', zIndex: 1000, position: 'relative' }} />
