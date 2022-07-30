@@ -125,3 +125,94 @@ export const DAY_ACTIVITIES: EveryActivity[] = [
 	{ type: ActivityType.empty, duration: 0.5, start: new Date('23:00') },
 	{ type: ActivityType.empty, duration: 0.5, start: new Date('23:30') },
 ]
+
+export type Service = {
+    name: string
+    description: string
+    minPrice?: string
+    maxPrice?: string
+    duration: number
+    isFree: boolean
+}
+export const SERVICES: Service[] = [
+    {
+        name: 'Маникюр',
+        description: 'который делается в салоне',
+        minPrice: '4 000',
+        maxPrice: '7 000',
+        duration: 1.5,
+        isFree: false
+    },
+    {
+        name: 'Педикюр',
+        description: 'который делается в салоне',
+        minPrice: '5 000',
+        maxPrice: '9 000',
+        duration: 0.5,
+        isFree: false
+    },
+    {
+        name: 'Укрепление ногтей на руках',
+        description: 'который делается в салоне',
+        minPrice: '1 000',
+        maxPrice: '4 000',
+        duration: 1.5,
+        isFree: false
+    },
+    {
+        name: 'Укрепление ногтей на ногах',
+        description: 'который делается в салоне',
+        minPrice: '1 000',
+        maxPrice: '5 000',
+        duration: 2.5,
+        isFree: false
+    },
+    {
+        name: 'Обучение ногтевому сервису',
+        description: 'который делается в салоне',
+        minPrice: '14 000',
+        maxPrice: '16 000',
+        duration: 2.5,
+        isFree: false
+    },
+    {
+        name: 'Маникюр',
+        description: 'который делается в салоне',
+        minPrice: '4 000',
+        maxPrice: '7 000',
+        duration: 1.5,
+        isFree: false
+    },
+    {
+        name: 'Педикюр',
+        description: 'который делается в салоне',
+        minPrice: '5 000',
+        maxPrice: '9 000',
+        duration: 0.5,
+        isFree: false
+    },
+    {
+        name: 'Укрепление ногтей на руках',
+        description: 'который делается в салоне',
+        minPrice: '1 000',
+        maxPrice: '4 000',
+        duration: 1.5,
+        isFree: false
+    },
+    {
+        name: 'Укрепление ногтей на ногах',
+        description: 'который делается в салоне',
+        minPrice: '1 000',
+        maxPrice: '5 000',
+        duration: 2.5,
+        isFree: false
+    },
+    {
+        name: 'Обучение ногтевому сервису',
+        description: 'который делается в салоне',
+        minPrice: '14 000',
+        maxPrice: '16 000',
+        duration: 2.5,
+        isFree: false
+    },
+]

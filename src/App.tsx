@@ -1,6 +1,6 @@
+import React from 'react'
 import { Global } from '@emotion/react'
 import { ThemeProvider as MuiThemeProvider } from '@mui/material'
-import React from 'react'
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 
 import { AppointmentForm } from 'src/components/AppointmentForm'
@@ -12,6 +12,7 @@ import { StoreProvider } from 'src/store'
 import { globalStyles } from 'src/styles/global'
 import { theme } from 'src/styles/theme'
 import { CalendarView } from 'src/views/CalendarView'
+import { ServicesView } from './views/ServicesView'
 
 const App = () => {
 	const location = useLocation()
@@ -24,6 +25,7 @@ const App = () => {
 				<NavLayout>
 					<Routes location={locationState?.background ?? location}>
 						<Route path={routerService.calendar()} element={<CalendarView />} />
+						<Route path="/services" element={<ServicesView />} />
 						<Route
 							path={routerService.modalRoute()}
 							element={
