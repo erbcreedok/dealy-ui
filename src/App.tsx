@@ -45,6 +45,10 @@ const App = () => {
 							path={routerService.addAppointment()}
 							element={<AppointmentForm />}
 						/>
+						<Route
+							path={routerService.addService()}
+							element="Create add service form"
+						/>
 					</Routes>
 				</ModalLayout>
 			</MuiThemeProvider>

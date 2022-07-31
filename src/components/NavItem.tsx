@@ -16,6 +16,7 @@ const Wrapper = styled(LinkBase)<{ active?: boolean }>`
 	justify-content: flex-end;
 	cursor: pointer;
 	height: 42px;
+	width: 20%;
 	svg {
 		width: 28px;
 		height: 28px;

@@ -5,7 +5,6 @@ export const ViewWrapper = styled(Box)`
 	box-sizing: border-box;
 	display: flex;
 	flex-direction: column;
-	height: 100vh;
+	height: 100%;
 	overflow: hidden;
-	padding-top: 24px;
 `

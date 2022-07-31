@@ -7,6 +7,7 @@ export const globalStyles = css`
 	html {
 		font-family: 'Nunito Sans', sans-serif;
 		margin: 0;
+		overflow: hidden;
 	}
 	* {
 		box-sizing: border-box;
