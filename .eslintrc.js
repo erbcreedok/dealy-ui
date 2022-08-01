@@ -27,7 +27,7 @@ module.exports = {
 		'no-use-before-define': [0],
 		'arrow-parens': ['error'],
 		// Linebreaks are handled by Git
-		'linebreak-style': 'error',
+		'linebreak-style': 'off',
 		'eol-last': 'error',
 		'lines-between-class-members': ['error', 'always'],
 		// Don't see the practical point of this rule
@@ -146,7 +146,12 @@ module.exports = {
 		'@typescript-eslint/explicit-module-boundary-types': 'off',
 		'no-useless-constructor': 'off',
 		'@typescript-eslint/no-useless-constructor': ['error'],
-		'prettier/prettier': ['error'],
+		'prettier/prettier': [
+			'error',
+			{
+				endOfLine: 'auto',
+			},
+		],
 		camelcase: 'off',
 		'max-classes-per-file': 'off',
 	},

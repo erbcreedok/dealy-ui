@@ -1,17 +1,16 @@
 import { FC } from 'react'
-import { ServiceItem } from './ServiceItem'
-import { SERVICES } from '../constants/mocks'
 import { Box } from '@mui/material'
 
+import { SERVICES } from '../constants/mocks'
+
+import { ServiceItem } from './ServiceItem'
 
 export const ServicesList: FC = () => {
-    return (
-        <Box>
-            {
-                SERVICES.map((service)=>(
-                    <ServiceItem service={service} />
-                ))
-            }
-        </Box>
-    )
+	return (
+		<Box>
+			{SERVICES.map((service, index) => (
+				<ServiceItem key={index} service={service} />
+			))}
+		</Box>
+	)
 }

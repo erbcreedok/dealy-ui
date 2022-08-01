@@ -12,6 +12,7 @@ import { StoreProvider } from 'src/store'
 import { globalStyles } from 'src/styles/global'
 import { theme } from 'src/styles/theme'
 import { CalendarView } from 'src/views/CalendarView'
+
 import { ServicesView } from './views/ServicesView'
 
 const App = () => {
