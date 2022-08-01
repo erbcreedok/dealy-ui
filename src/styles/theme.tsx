@@ -30,7 +30,8 @@ export const theme = createTheme({
 		MuiTabs: {
 			styleOverrides: {
 				flexContainer: {
-					justifyContent: 'space-between',
+					// justifyContent: 'space-between',
+					gap: '24px',
 				},
 				indicator: {
 					backgroundColor: COLORS.violet,

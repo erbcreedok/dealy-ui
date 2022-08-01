@@ -1,14 +1,16 @@
 import styled from '@emotion/styled'
-import { Box, IconButton, Typography } from '@mui/material'
+import { Box } from '@mui/material'
 import { FC } from 'react'
 
 import { COLORS } from 'src/constants/colors'
-import { Service } from 'src/constants/mocks'
+import { Service } from 'src/types/ServiceTypes'
+import { IconButton } from 'src/components/styled/IconButton'
 
 import { getDurationString } from '../utils/getDurationString'
 import { ReactComponent as DotsIcon } from '../assets/icons/dots.svg'
 
 import { Flex } from './Flex'
+import { Typography } from './styled/Typography'
 
 const Tag = styled(Box)`
 	font-size: 14px;

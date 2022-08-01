@@ -3,6 +3,7 @@ import {
 	ActivityType,
 	EveryActivity,
 } from 'src/types/ActivityTypes'
+import { Service } from 'src/types/ServiceTypes'
 import { getTwoDigitNumber } from 'src/utils/getTwoDigitNumber'
 
 const breakpoints = [
@@ -126,14 +127,6 @@ export const DAY_ACTIVITIES: EveryActivity[] = [
 	{ type: ActivityType.empty, duration: 0.5, start: new Date('23:30') },
 ]
 
-export type Service = {
-	name: string
-	description: string
-	minPrice?: string
-	maxPrice?: string
-	duration: number
-	isFree: boolean
-}
 export const SERVICES: Service[] = [
 	{
 		name: 'Маникюр',

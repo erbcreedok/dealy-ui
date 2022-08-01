@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { Box, IconButton, Tab, Tabs } from '@mui/material'
+import { Box, Tab, Tabs } from '@mui/material'
 import { FC, useState } from 'react'
 
 import { ReactComponent as BellIcon } from 'src/assets/icons/bell.svg'
@@ -7,6 +7,7 @@ import { ReactComponent as SearchIcon } from 'src/assets/icons/search.svg'
 import { Container } from 'src/components/Container'
 import { Flex } from 'src/components/Flex'
 import { ServicesList } from 'src/components/ServicesList'
+import { IconButton } from 'src/components/styled/IconButton'
 import { Heading } from 'src/components/styled/Typography'
 import { ViewBox } from 'src/components/styled/ViewBox'
 
@@ -47,7 +48,7 @@ function a11yProps(index: number) {
 	}
 }
 
-export const ServicesView: FC = () => {
+export const ScheduleView: FC = () => {
 	const [value, setValue] = useState(1)
 
 	const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -58,7 +59,11 @@ export const ServicesView: FC = () => {
 		<ViewBox>
 			<Container>
 				<Flex alignItems="center" justifyContent="space-between">
-					<Heading sx={{ flexGrow: 1 }}>
+					<Heading
+						sx={{
+							flexGrow: 1,
+						}}
+					>
 						<Tabs value={value} onChange={handleChange} aria-label="">
 							<StyledTab label="Рабочий график" {...a11yProps(0)} />
 							<StyledTab label="Мои услуги" {...a11yProps(1)} />
@@ -72,7 +77,11 @@ export const ServicesView: FC = () => {
 					</IconButton>
 				</Flex>
 			</Container>
-			<Box>
+			<Box
+				sx={{
+					overflow: 'auto',
+				}}
+			>
 				<TabPanel value={value} index={0}>
 					Item One
 				</TabPanel>
