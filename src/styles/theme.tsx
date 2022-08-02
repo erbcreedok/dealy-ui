@@ -27,5 +27,26 @@ export const theme = createTheme({
 				},
 			},
 		},
+		MuiTabs: {
+			styleOverrides: {
+				flexContainer: {
+					// justifyContent: 'space-between',
+					gap: '24px',
+				},
+				indicator: {
+					backgroundColor: COLORS.violet,
+				},
+			},
+		},
+		MuiTab: {
+			styleOverrides: {
+				root: {
+					color: COLORS.grey,
+					'&.Mui-selected': {
+						color: COLORS.black,
+					},
+				},
+			},
+		},
 	},
 })
