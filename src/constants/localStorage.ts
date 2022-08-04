@@ -1,0 +1,1 @@
+export const LS_ACCESS_TOKEN = 'DEALY:ACCESS_TOKEN'
