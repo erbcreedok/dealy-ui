@@ -5,6 +5,7 @@ export type HEX = `#${string}`
 export type Color = RGB | RGBA | HEX
 
 export enum COLORS {
+	white = '#FFFFFF',
 	lightViolet = 'rgba(66, 20, 232, 0.22)',
 	violet = '#623CEA',
 	lightGrey = '#D5D5D7',

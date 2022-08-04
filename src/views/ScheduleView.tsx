@@ -10,6 +10,7 @@ import { ServicesList } from 'src/components/ServicesList'
 import { IconButton } from 'src/components/styled/IconButton'
 import { Heading } from 'src/components/styled/Typography'
 import { ViewBox } from 'src/components/styled/ViewBox'
+import { COLORS } from 'src/constants/colors'
 
 interface TabPanelProps {
 	children?: React.ReactNode
@@ -28,7 +29,7 @@ const TabPanel = (props: TabPanelProps) => {
 			aria-labelledby={`simple-tab-${index}`}
 			{...other}
 		>
-			{value === index && <Container>{children}</Container>}
+			{value === index && <Box>{children}</Box>}
 		</Box>
 	)
 }
@@ -80,6 +81,8 @@ export const ScheduleView: FC = () => {
 			<Box
 				sx={{
 					overflow: 'auto',
+					backgroundColor: COLORS.lightestGrey,
+					height: '100vh',
 				}}
 			>
 				<TabPanel value={value} index={0}>

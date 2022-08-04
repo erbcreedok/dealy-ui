@@ -27,7 +27,8 @@ export const ServiceItem: FC<ServiceProps> = ({ service }) => {
 		<Flex
 			sx={{
 				gap: '8px',
-				padding: '16px 0',
+				py: '16px',
+				mx: '16px',
 				borderBottom: `0.4px solid ${COLORS.lightGrey}`,
 				flexDirection: 'column',
 				position: 'relative',
@@ -76,7 +77,7 @@ export const ServiceItem: FC<ServiceProps> = ({ service }) => {
 				sx={{
 					position: 'absolute',
 					top: '8px',
-					right: '-8px',
+					right: '0',
 				}}
 			>
 				<DotsIcon />
