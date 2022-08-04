@@ -82,7 +82,7 @@ export const ScheduleView: FC = () => {
 				sx={{
 					overflow: 'auto',
 					backgroundColor: COLORS.lightestGrey,
-					height: '100vh',
+					height: '100%',
 				}}
 			>
 				<TabPanel value={value} index={0}>
