@@ -52,5 +52,35 @@ export const theme = createTheme({
 				},
 			},
 		},
+		MuiOutlinedInput: {
+			styleOverrides: {
+				root: {
+					background: COLORS.lightestGrey,
+					padding: '12px 20px',
+					borderRadius: '16px',
+					'&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+						borderWidth: '1px',
+					},
+				},
+				input: {
+					padding: 0,
+					height: 'fit-content',
+				},
+				notchedOutline: {
+					borderWidth: '1px',
+					borderColor: 'transparent',
+				},
+			},
+		},
+		MuiInputLabel: {
+			styleOverrides: {
+				root: {
+					transform: 'translate(20px, 12px) scale(1)',
+					[`&.Mui-focused, &.MuiFormLabel-filled`]: {
+						transform: 'translate(14px, -9px) scale(0.75)',
+					},
+				},
+			},
+		},
 	},
 })

@@ -1,8 +1,10 @@
 import { Global } from '@emotion/react'
-import { ThemeProvider as MuiThemeProvider } from '@mui/material'
+import { ThemeProvider } from '@mui/material'
+import { FC } from 'react'
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 
 import { AppointmentForm } from 'src/components/AppointmentForm'
+import { ServiceForm } from 'src/components/ServiceForm'
 import { useLocationState } from 'src/hooks/useLocationState'
 import { ModalLayout } from 'src/layouts/ModalLayout'
 import { NavLayout } from 'src/layouts/NavLayout'
@@ -10,16 +12,21 @@ import { routerService } from 'src/services/routerService'
 import { StoreProvider } from 'src/store'
 import { globalStyles } from 'src/styles/global'
 import { theme } from 'src/styles/theme'
+import { ApplicationConfig } from 'src/types'
 import { CalendarView } from 'src/views/CalendarView'
 import { ScheduleView } from 'src/views/ScheduleView'
 
-const App = () => {
+type Props = {
+	config: ApplicationConfig
+}
+
+const App: FC<Props> = ({ config }) => {
 	const location = useLocation()
 	const locationState = useLocationState()
 
 	return (
-		<StoreProvider>
-			<MuiThemeProvider theme={theme}>
+		<StoreProvider config={config}>
+			<ThemeProvider theme={theme}>
 				<Global styles={globalStyles} />
 				<NavLayout>
 					<Routes location={locationState?.background ?? location}>
@@ -48,11 +55,11 @@ const App = () => {
 						/>
 						<Route
 							path={routerService.addService()}
-							element="Create add service form"
+							element={<ServiceForm />}
 						/>
 					</Routes>
 				</ModalLayout>
-			</MuiThemeProvider>
+			</ThemeProvider>
 		</StoreProvider>
 	)
 }
