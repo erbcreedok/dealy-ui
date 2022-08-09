@@ -1,4 +1,12 @@
-import { Box, Button, FormLabel, Portal, Slide, TextField } from '@mui/material'
+import {
+	Box,
+	Button,
+	Checkbox,
+	FormLabel,
+	Portal,
+	Slide,
+	TextField,
+} from '@mui/material'
 import { FC, useCallback, useState } from 'react'
 import { useForm } from 'react-hook-form'
 
@@ -26,9 +34,11 @@ type Props = {
 export const ServiceForm: FC<Props> = ({
 	defaultValues = defaultInitialValues,
 }) => {
-	const { register, handleSubmit } = useForm<ServiceFormModel>({
-		defaultValues,
-	})
+	const { register, getFieldState, handleSubmit, formState } =
+		useForm<ServiceFormModel>({
+			defaultValues,
+			mode: 'onChange',
+		})
 	const [step, setStep] = useState(0)
 	const { serviceStore } = useStore()
 	const { titleElement } = useModal()
@@ -40,10 +50,36 @@ export const ServiceForm: FC<Props> = ({
 		[serviceStore]
 	)
 
+	const isInputValid = (step: number) => {
+		if (step === 0) {
+			return !getFieldState('title', formState).isDirty
+		}
+		if (step === 1) {
+			return !getFieldState('description', formState).isDirty
+		}
+		if (step === 2) {
+			return !(
+				getFieldState('min_price', formState).isDirty &&
+				getFieldState('max_price', formState).isDirty
+			)
+		}
+
+		return true
+	}
+
 	const steps = [
 		<>
 			<FormLabel sx={{ mb: 2 }}>Укажите название услуги</FormLabel>
-			<TextField fullWidth placeholder="Тренинг" {...register('title')} />
+			<TextField
+				fullWidth
+				placeholder="Тренинг"
+				{...register('title', {
+					required: {
+						value: true,
+						message: 'Обязательное поле',
+					},
+				})}
+			/>
 		</>,
 		<>
 			<FormLabel sx={{ mb: 2 }}>Укажите описание для услуги</FormLabel>
@@ -52,7 +88,12 @@ export const ServiceForm: FC<Props> = ({
 				fullWidth
 				multiline
 				placeholder="Тренинг по будням"
-				{...register('description')}
+				{...register('description', {
+					required: {
+						value: true,
+						message: 'Обязательное поле',
+					},
+				})}
 			/>
 		</>,
 		<>
@@ -60,8 +101,34 @@ export const ServiceForm: FC<Props> = ({
 				Укажите минимальную и максимальную стоимости услуги
 			</FormLabel>
 			<Flex sx={{ gap: '16px' }}>
-				<TextField fullWidth label="минимальная" {...register('min_price')} />
-				<TextField fullWidth label="максимальная" {...register('max_price')} />
+				<TextField
+					fullWidth
+					label="минимальная"
+					{...register('min_price', {
+						required: {
+							value: true,
+							message: 'Обязательное поле',
+						},
+					})}
+				/>
+				<TextField
+					fullWidth
+					label="максимальная"
+					{...register('max_price', {
+						required: {
+							value: true,
+							message: 'Обязательное поле',
+						},
+					})}
+				/>
+			</Flex>
+			<Flex
+				sx={{
+					alignItems: 'center',
+				}}
+			>
+				<Checkbox />
+				<Typography>Эта услуга бесплатная</Typography>
 			</Flex>
 		</>,
 		<>
@@ -108,6 +175,7 @@ export const ServiceForm: FC<Props> = ({
 							size="large"
 							fullWidth
 							onClick={() => setStep((s) => s + 1)}
+							disabled={isInputValid(step)}
 						>
 							Продолжить
 						</Button>

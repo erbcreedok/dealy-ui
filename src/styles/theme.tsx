@@ -30,6 +30,15 @@ export const theme = createTheme({
 					paddingBottom: '15px',
 					boxShadow: 'none',
 				},
+				// disabled: {
+				// 	backgroundColor: COLORS.lightViolet,
+				// 	opacity: '0.5',
+				// },
+				// root: {
+				// 	'&.Mui-disabled': {
+				// 		backgroundColor: COLORS.lightViolet,
+				// 	},
+				// },
 			},
 		},
 		MuiTabs: {
@@ -79,6 +88,20 @@ export const theme = createTheme({
 					[`&.Mui-focused, &.MuiFormLabel-filled`]: {
 						transform: 'translate(14px, -9px) scale(0.75)',
 					},
+				},
+			},
+		},
+		MuiFormLabel: {
+			styleOverrides: {
+				root: {
+					color: COLORS.black,
+				},
+			},
+		},
+		MuiFormHelperText: {
+			styleOverrides: {
+				root: {
+					color: COLORS.grey,
 				},
 			},
 		},
