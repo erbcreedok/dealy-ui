@@ -26,6 +26,7 @@ const defaultInitialValues: ServiceFormModel = {
 	title: '',
 	duration: '',
 	description: '',
+	// is_free: false,
 }
 
 type Props = {
@@ -127,7 +128,7 @@ export const ServiceForm: FC<Props> = ({
 					alignItems: 'center',
 				}}
 			>
-				<Checkbox />
+				<Checkbox disabled />
 				<Typography>Эта услуга бесплатная</Typography>
 			</Flex>
 		</>,

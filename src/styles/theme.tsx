@@ -30,15 +30,13 @@ export const theme = createTheme({
 					paddingBottom: '15px',
 					boxShadow: 'none',
 				},
-				// disabled: {
-				// 	backgroundColor: COLORS.lightViolet,
-				// 	opacity: '0.5',
-				// },
-				// root: {
-				// 	'&.Mui-disabled': {
-				// 		backgroundColor: COLORS.lightViolet,
-				// 	},
-				// },
+				root: {
+					'&.Mui-disabled': {
+						backgroundColor: COLORS.violet,
+						opacity: '0.5',
+						color: COLORS.white,
+					},
+				},
 			},
 		},
 		MuiTabs: {

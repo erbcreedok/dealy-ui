@@ -3,11 +3,13 @@ import { Box, Button } from '@mui/material'
 
 import { ReactComponent as CirclePlusIcon } from 'src/assets/icons/plus-circle.svg'
 import { COLORS } from 'src/constants/colors'
+// import { routerService } from 'src/services/routerService'
 
 import { SERVICES } from '../constants/mocks'
 
 import { ServiceItem } from './ServiceItem'
 import { Typography } from './styled/Typography'
+import { LinkBase } from './LinkBase'
 
 export const ServicesList: FC = () => {
 	return (
@@ -83,7 +85,7 @@ export const ServicesList: FC = () => {
 								lineHeight: '20px',
 							}}
 						>
-							Создать услугу
+							<LinkBase to="/modal/add-service">Создать услугу</LinkBase>
 						</Button>
 					</Box>
 				</Box>
