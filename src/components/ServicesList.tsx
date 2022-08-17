@@ -3,13 +3,13 @@ import { Box, Button } from '@mui/material'
 
 import { ReactComponent as CirclePlusIcon } from 'src/assets/icons/plus-circle.svg'
 import { COLORS } from 'src/constants/colors'
-// import { routerService } from 'src/services/routerService'
 
 import { SERVICES } from '../constants/mocks'
 
 import { ServiceItem } from './ServiceItem'
 import { Typography } from './styled/Typography'
 import { LinkBase } from './LinkBase'
+import { SnackbarComponent } from './SnackbarContent'
 
 export const ServicesList: FC = () => {
 	return (
@@ -90,6 +90,7 @@ export const ServicesList: FC = () => {
 					</Box>
 				</Box>
 			)}
+			<SnackbarComponent message="Услуга создана" />
 		</Box>
 	)
 }

@@ -26,7 +26,6 @@ const defaultInitialValues: ServiceFormModel = {
 	title: '',
 	duration: '',
 	description: '',
-	// is_free: false,
 }
 
 type Props = {
@@ -35,12 +34,19 @@ type Props = {
 export const ServiceForm: FC<Props> = ({
 	defaultValues = defaultInitialValues,
 }) => {
-	const { register, getFieldState, handleSubmit, formState } =
-		useForm<ServiceFormModel>({
-			defaultValues,
-			mode: 'onChange',
-		})
+	const {
+		register,
+		getFieldState,
+		handleSubmit,
+		formState,
+		resetField,
+		// setValue,
+	} = useForm<ServiceFormModel>({
+		defaultValues,
+		mode: 'onChange',
+	})
 	const [step, setStep] = useState(0)
+	const [checked, setChecked] = useState(false)
 	const { serviceStore } = useStore()
 	const { titleElement } = useModal()
 
@@ -59,6 +65,8 @@ export const ServiceForm: FC<Props> = ({
 			return !getFieldState('description', formState).isDirty
 		}
 		if (step === 2) {
+			if (checked) return false
+
 			return !(
 				getFieldState('min_price', formState).isDirty &&
 				getFieldState('max_price', formState).isDirty
@@ -103,6 +111,7 @@ export const ServiceForm: FC<Props> = ({
 			</FormLabel>
 			<Flex sx={{ gap: '16px' }}>
 				<TextField
+					disabled={checked}
 					fullWidth
 					label="минимальная"
 					{...register('min_price', {
@@ -113,6 +122,7 @@ export const ServiceForm: FC<Props> = ({
 					})}
 				/>
 				<TextField
+					disabled={checked}
 					fullWidth
 					label="максимальная"
 					{...register('max_price', {
@@ -128,7 +138,18 @@ export const ServiceForm: FC<Props> = ({
 					alignItems: 'center',
 				}}
 			>
-				<Checkbox disabled />
+				<Checkbox
+					name="free"
+					checked={checked}
+					onChange={() => {
+						if (!checked) {
+							resetField('min_price')
+							// setValue('min_price', 'hello')
+							resetField('max_price')
+						}
+						setChecked(!checked)
+					}}
+				/>
 				<Typography>Эта услуга бесплатная</Typography>
 			</Flex>
 		</>,

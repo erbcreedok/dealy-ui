@@ -103,5 +103,22 @@ export const theme = createTheme({
 				},
 			},
 		},
+		MuiSnackbarContent: {
+			styleOverrides: {
+				root: {
+					backgroundColor: 'rgba(0, 0, 0, 0.8)',
+					borderRadius: '20px',
+					padding: '16px',
+					margin: '0 8px',
+				},
+				message: {
+					fontSize: '16px',
+					lineHeight: '20px',
+				},
+				action: {
+					marginRight: 0,
+				},
+			},
+		},
 	},
 })
